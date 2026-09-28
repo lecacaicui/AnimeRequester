@@ -14,19 +14,41 @@
 
         <section class="presentation">
             <h1>Bienvenue sur ANIME-CHAN</h1>
-            <p>Découvrez les meilleurs animes et mangas du moment !</p>
+            <p>Découvrez les meilleurs animes du moment !</p>
         </section>
 
         <section class="recherche">
-            
+
+            <form action="" method="get">
+                <input type="text" name="query" placeholder="Rechercher un anime par titre...">
+
+
+                <button type="submit">Rechercher</button>
+                <button type="button" id="randomButton">Anime aléatoire</button>
+                <button type="button" id="eraseButton">Effacer</button>
+            </form>
+
         </section>
 
         <section class="resultats">
-            <h2></h2>
+            
+            <div id="resultsContainer">
+                <h2 id="resultsTitle">Titre</h2>
+                <img id="resultsImage" src="" alt="Image de l'anime">
+                <p id="resultsSynopsis">Synopsis</p>
+            </div>
+
+            <div id="statsContainer">
+                <h3>Statistiques</h3>
+                <p id="genre">Genre : </p>
+                <p id="resultsEpisodes">Nombre d'épisodes : </p>
+                <p id="resultsRank">Classement : </p>
+            </div>
+
         </section>
 
     </main>
-.0
+
     <footer>
 
     </footer>
