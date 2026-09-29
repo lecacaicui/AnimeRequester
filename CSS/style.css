@@ -1,1 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
 
+body {
+    background: linear-gradient(black ,rgb(23, 23, 71));
+    color: gainsboro;
+    font-family: "Dela Gothic One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header{
+    background-color: black;
+}
+
+.recherche form input{
+    background: rgb(162, 162, 244);
+    opacity: 0,7;
+}
+.recherche form input :hover{
+    background: rgb(162, 162, 244);
+    opacity: 1;
+}
