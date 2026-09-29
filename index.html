@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANIME-CHAN</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="./JS/script.js" defer></script>
 </head>
 <body>
     <header>
-
+        <h1 class="nomSite">ANIME-CHAN</h1>
+        <section class="recherche">
+            
+        <form class="recherche" action="" method="get">
+            <input type="text" name="query" placeholder="Rechercher un anime par titre...">
+            <button type="submit">Rechercher</button>
+            <button type="button" id="randomButton">Anime aléatoire</button>
+        </form>
+        </section>
     </header>
 
     <main>
@@ -17,17 +27,10 @@
             <p>Découvrez les meilleurs animes du moment !</p>
         </section>
 
-        <section class="recherche">
-
-            <form action="" method="get">
-                <input type="text" name="query" placeholder="Rechercher un anime par titre...">
-
-
-                <button type="submit">Rechercher</button>
-                <button type="button" id="randomButton">Anime aléatoire</button>
-                <button type="button" id="eraseButton">Effacer</button>
-            </form>
-
+        <section class="description">
+            <h2>À propos</h2>
+            <p>ANIME-CHAN est une plateforme dédiée aux amateurs d'anime. Vous pouvez rechercher vos animes préférés, 
+                découvrir de nouveaux titres et obtenir des informations détaillées sur chaque anime.</p>
         </section>
 
         <section class="resultats">
