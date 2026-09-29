@@ -12,11 +12,68 @@ header{
     background-color: black;
 }
 
-.recherche form input{
-    background: rgb(162, 162, 244);
-    opacity: 0,7;
+.recherche {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
 }
-.recherche form input :hover{
-    background: rgb(162, 162, 244);
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #0b1017;
+    border: 1px solid #1a2639; 
+    border-radius: 12px;      
+    padding: 8px 16px;
+    width: 320px;
+}
+
+.search-btn {
+    background-color: #0f2744;
+    color: #3b74b8;            
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 6px;
+    transition: opacity 0.3s ease;
+}
+
+.search-btn:hover {
+    opacity: 0.8;
+}
+
+.search-container input {
+    background: transparent;
+    border: none;
+    color: #728496; 
+    font-family: inherit;
+    font-size: 16px;
+    margin-left: 12px;
+    width: 100%;
+    outline: none; 
+}
+
+.search-container input::placeholder {
+    color: #728496;
+}
+
+.random-btn {
+    background: rgb(100,100,100);
+    color: gainsboro;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.5;
+    font-family: "Dela Gothic One", sans-serif;
+    transition: opacity 0.3s ease;
+}
+
+.random-btn:hover {
     opacity: 1;
 }
