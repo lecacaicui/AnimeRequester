@@ -10,12 +10,15 @@ body {
 
 header{
     background-color: black;
+    display: flex;
+    align-items: center;
 }
 
 .recherche {
     display: flex;
     align-items: center;
     gap: 15px; 
+    padding-left: 1em;
 }
 
 .search-container {
