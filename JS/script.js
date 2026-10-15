@@ -18,21 +18,30 @@ fetch('PAGES/footer.html')
 
 // Partie du Carrousel
 
+const btnSuivant = document.getElementById('nextBtn');
+const btnPrecedent = document.getElementById('prevBtn');
+const imageCarrousel = document.getElementById('carrouselImage');
+const titreCarrousel = document.getElementById('carrouselTitre');
 
-  btnSuivant.addEventListener('click', () => {
-  if (slidesAnimes.length === 0) return;
+var slidesAnimes = [];
+
+var indexActuel = 0;
+const maxIndex = slidesAnimes.length - 1;
+
+btnSuivant.addEventListener('click', () => {
+  if (maxIndex === 0) return;
   indexActuel++;
-  if (indexActuel >= slidesAnimes.length) {
+  if (indexActuel >= maxIndex) {
     indexActuel = 0;
   }
   afficherSlide();
 });
 
 btnPrecedent.addEventListener('click', () => {
-  if (slidesAnimes.length === 0) return;
+  if (maxIndex === 0) return;
   indexActuel--;
   if (indexActuel < 0) {
-    indexActuel = slidesAnimes.length - 1;
+    indexActuel = maxIndex;
   }
   afficherSlide();
 });
