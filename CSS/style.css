@@ -1,27 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
 
 body {
-    background: linear-gradient(black ,rgb(23, 23, 71));
-    color: gainsboro;
+    background-color: #060913;
+    background-image: 
+        radial-gradient(circle at 50% 0%, #0d1b2e 0%, transparent 50%),
+        radial-gradient(circle at 100% 30%, #091225 0%, transparent 40%),
+        radial-gradient(circle at 0% 70%, #070e1e 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, #03050a 0%, #03050a 100%);
+    background-attachment: fixed; 
+    color: #e2e8f0; 
     font-family: "Dela Gothic One", sans-serif;
     font-weight: 400;
     font-style: normal;
+    margin: 0;
+    padding: 0;
 }
 
-header{
-    background-color: black;
-<<<<<<< HEAD
+header {
+    background-color: rgba(11, 14, 20, 0.95); 
+    backdrop-filter: blur(8px); 
+    border-bottom: 1px solid #142035; 
     display: flex;
+    justify-content: space-between;
     align-items: center;
-=======
->>>>>>> 751bc1d09b434387fa46ceef830a089f55cf3e73
+    padding: 15px 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nomSite {
+    font-size: 24px;
+    background: linear-gradient(to right, #ffffff, #8da6c4);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
 }
 
 .recherche {
     display: flex;
     align-items: center;
-    gap: 15px; 
-<<<<<<< HEAD
+    gap: 15px;
     padding-left: 1em;
 =======
 >>>>>>> 751bc1d09b434387fa46ceef830a089f55cf3e73
@@ -30,59 +50,135 @@ header{
 .search-container {
     display: flex;
     align-items: center;
-    background-color: #0b1017;
-    border: 1px solid #1a2639; 
-    border-radius: 12px;      
-    padding: 8px 16px;
+    background-color: #080c14;
+    border: 1px solid #142035; 
+    border-radius: 8px;      
+    padding: 6px 12px;
     width: 320px;
+    transition: border-color 0.3s;
+}
+
+.search-container:focus-within {
+    border-color: #3b82f6;
 }
 
 .search-btn {
-    background-color: #0f2744;
-    color: #3b74b8;            
+    background-color: #0e1e38;
+    color: #3b82f6;            
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    padding: 6px;
-    transition: opacity 0.3s ease;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .search-btn:hover {
-    opacity: 0.8;
+    background-color: #1e3a66;
+    transform: scale(1.05);
 }
 
 .search-container input {
     background: transparent;
     border: none;
-    color: #728496; 
+    color: #94a3b8; 
     font-family: inherit;
-    font-size: 16px;
-    margin-left: 12px;
+    font-size: 14px;
+    margin-left: 10px;
     width: 100%;
     outline: none; 
 }
 
 .search-container input::placeholder {
-    color: #728496;
+    color: #475569;
 }
 
 .random-btn {
-    background: rgb(100,100,100);
-    color: gainsboro;
-    border: none;
-    padding: 10px 15px;
+    background: #0f172a;
+    color: #94a3b8;
+    border: 1px solid #1e293b;
+    padding: 8px 16px;
     border-radius: 8px;
     cursor: pointer;
-    opacity: 0.5;
-    font-family: "Dela Gothic One", sans-serif;
-    transition: opacity 0.3s ease;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.3s ease;
 }
 
 .random-btn:hover {
-    opacity: 1;
+    background: #1e293b;
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1, h2 {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+p {
+    color: #94a3b8;
+    font-family: system-ui, -apple-system, sans-serif; 
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.presentation, .description, .resultats {
+    background-color: rgba(13, 17, 27, 0.7);
+    border: 1px solid #10192e;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.carrousel {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.carrousel img {
+    width: 180px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #10192e;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.carrousel img:hover {
+    transform: translateY(-5px);
+    border-color: #3b82f6; 
+}
+
+
+footer, .liens-utiles {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #142035;
+}
+
+a {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+a:hover {
+    color: #60a5fa;
+    text-decoration: underline;
 }
