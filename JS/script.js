@@ -1,6 +1,6 @@
-
 const ORIGINES_AUTORISEES = ['https://tonpseudo.github.io'];
 const TTL_SECONDES = 86400;
+
 
 
 // Liaison du header à l'index.html
@@ -20,17 +20,22 @@ fetch('PAGES/footer.html')
   .catch(error => console.error('Erreur lors du chargement du footer:', error));
 
 
+
 function reponseJSON(corps, statut, request) {
   const origine = request.headers.get('Origin');
+
   return new Response(JSON.stringify(corps), {
     status: statut,
     headers: {
       'Content-Type': 'application/json',
+
       'Access-Control-Allow-Origin': ORIGINES_AUTORISEES.includes(origine) ? origine : ORIGINES_AUTORISEES[0],
+
       'Vary': 'Origin'
     }
   });
 }
+
 
 export default {
   async fetch(request, env) {
@@ -55,6 +60,7 @@ export default {
       const resultat = await chargerAvecCache(nom, env);
       if (!resultat) return reponseJSON({ erreur: 'Animé introuvable' }, 404, request);
       return reponseJSON(resultat, 200, request);
+
     } catch (error) {
       console.error('[Proxy]', error);
       return reponseJSON({ erreur: 'Erreur interne' }, 500, request);
@@ -63,6 +69,7 @@ export default {
 };
 
 async function chargerDepuisAPI(nom, env) {
+
   const params = new URLSearchParams({ page: '1', size: '1', search: nom });
   const response = await fetch(`https://anime-db.p.rapidapi.com/anime?${params}`, {
     headers: {
@@ -71,10 +78,12 @@ async function chargerDepuisAPI(nom, env) {
     }
   });
 
+
   if (!response.ok) throw new Error(`API ${response.status}`);
 
   const json = await response.json();
   const anime = json?.data?.[0];
+
   if (!anime) return null;
 
   return {
@@ -87,15 +96,19 @@ async function chargerDepuisAPI(nom, env) {
   };
 }
 
-async function chargerAvecCache(nom, env) {
-  const cle = `anime_${nom.toLowerCase()}`;
 
+async function chargerAvecCache(nom, env) {
+
+  const cle = `anime_${nom.toLowerCase()}`;
   const enCache = await env.MON_KV_CACHE?.get(cle);
+
   if (enCache) return JSON.parse(enCache);
 
   const anime = await chargerDepuisAPI(nom, env);
+
   if (anime) {
     await env.MON_KV_CACHE?.put(cle, JSON.stringify(anime), { expirationTtl: TTL_SECONDES });
   }
+
   return anime;
-}
+} 

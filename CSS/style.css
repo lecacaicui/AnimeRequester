@@ -10,15 +10,21 @@ body {
 
 header{
     background-color: black;
+<<<<<<< HEAD
     display: flex;
     align-items: center;
+=======
+>>>>>>> 751bc1d09b434387fa46ceef830a089f55cf3e73
 }
 
 .recherche {
     display: flex;
     align-items: center;
     gap: 15px; 
+<<<<<<< HEAD
     padding-left: 1em;
+=======
+>>>>>>> 751bc1d09b434387fa46ceef830a089f55cf3e73
 }
 
 .search-container {
