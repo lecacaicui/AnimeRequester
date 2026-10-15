@@ -14,3 +14,6 @@ fetch('PAGES/footer.html')
     document.getElementById('footer-container').innerHTML = data;
   })
   .catch(error => console.error('Erreur lors du chargement du footer:', error));
+
+
+  
