@@ -79,3 +79,5 @@ async function chargerCarrousel() {
     titreCarrousel.textContent = 'Impossible de charger les animes';
   }
 }
+
+chargerCarrousel();
