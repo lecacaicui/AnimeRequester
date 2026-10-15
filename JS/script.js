@@ -18,14 +18,18 @@ fetch('PAGES/footer.html')
 
 // Partie du Carrousel
 
+const URL_PROXY = 'https://animerequester.nilsr8888.workers.dev';
+const nomsAnimesCarrousel = [];
+
+
+const imgCarrousel = document.getElementById('carrouselImage');
 const btnSuivant = document.getElementById('nextBtn');
 const btnPrecedent = document.getElementById('prevBtn');
-const imageCarrousel = document.getElementById('carrouselImage');
 const titreCarrousel = document.getElementById('carrouselTitre');
 
-var slidesAnimes = [];
+let slidesAnimes = [];
+let indexActuel = 0;
 
-var indexActuel = 0;
 const maxIndex = slidesAnimes.length - 1;
 
 btnSuivant.addEventListener('click', () => {
@@ -45,3 +49,33 @@ btnPrecedent.addEventListener('click', () => {
   }
   afficherSlide();
 });
+
+
+function afficherSlide() {
+  if (slidesAnimes.length === 0) return;
+
+  const animeActuel = slidesAnimes[indexActuel];
+  imgCarrousel.src = animeActuel.image;
+  imgCarrousel.alt = animeActuel.titre;
+  titreCarrousel.textContent = animeActuel.titre;
+}
+
+async function chargerCarrousel() {
+  for (const nom of nomsAnimesCarrousel) {
+    try {
+      const reponse = await fetch(`${URL_PROXY}?nom=${encodeURIComponent(nom)}`);
+      if (reponse.ok) {
+        const donnees = await reponse.json();
+        slidesAnimes.push(donnees);
+      }
+    } catch (erreur) {
+      console.error('Erreur de récupération de :', nom, erreur);
+    }
+  }
+
+  if (slidesAnimes.length > 0) {
+    afficherSlide();
+  } else {
+    titreCarrousel.textContent = 'Impossible de charger les animes';
+  }
+}
